@@ -7,27 +7,78 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Fonts -->
+        <!-- <-- Fonts --> 
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+         <!-- Custom Styles -->
+    <style>
 
-        <!-- Scripts -->
+     .bg-brown {
+      --tw-bg-opacity: 1;
+       background-color: rgb(210 180 140 / var(--tw-bg-opacity)); /* Light brown color value */
+        }
+
+       .bg-gray-100 {
+       --tw-bg-opacity: 1;
+         background-color: rgb(140 110 83 / var(--tw-bg-opacity)); /* Lighter brown color */
+        }
+         .bg-darkbrown {
+         --tw-bg-opacity: 1;
+         background-color: rgb(144 122 95 / var(--tw-bg-opacity)); /* Dark brown color */
+          }
+
+          .h-12 {
+          height: 190px; /* Adjust the height as needed */
+         }
+
+         .w-10 {
+          width: 150px; /* Adjust the width as needed */
+         }
+
+         .text-center{
+         display: block;
+         margin: 
+        }
+
+        .rounded-curved {
+         border-radius: 10px;
+         }
+          .w-11 {
+            width: 180;
+          }
+
+          .custom-container {
+        max-width: 40rem; /* 7xl = 80rem */
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1.5rem; /* p-6 = 1.5rem */
+    }
+
+    @media (min-width: 1024px) {
+        .custom-container {
+            padding-left: 2rem; /* lg:p-8 = 2rem */
+            padding-right: 2rem; /* lg:p-8 = 2rem */
+        }
+    }
+     </style>
+       
+       <!--  <-- Scripts -- -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div class="min-h-screen bg-white dark:bg-white">
             @include('layouts.navigation')
 
-            <!-- Page Heading -->
+            <!-- <-- Page Heading -- -->
             @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
+                <header class="bg-brown dark:bg-brown shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>
             @endif
 
-            <!-- Page Content -->
+            <!-- <-- Page Content -- -->
             <main>
                 {{ $slot }}
             </main>
