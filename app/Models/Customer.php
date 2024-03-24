@@ -3,16 +3,17 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model
+class customers extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'customer_id';
-    protected $fillable = [
-        'name',
-        'email',
-        'phonenumber',
-        'address'
-    ];
+
+    protected $table = "customers";
+
+   /*  public function order():BelongsTo
+    {
+        return $this->belongsTo(orders::class, 'customers_id');
+    } */
 }

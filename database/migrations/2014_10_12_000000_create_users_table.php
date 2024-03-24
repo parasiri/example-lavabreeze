@@ -20,6 +20,14 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('phonenumber',10)->after('name');
+            $table->string('address')->after('phonenumber');
+        });
+
+
+
     }
 
     /**
