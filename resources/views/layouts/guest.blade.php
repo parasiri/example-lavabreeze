@@ -45,7 +45,12 @@
         .mb-8 {
         margin-bottom: 1rem; /* Adjust the margin as needed */
          }
-
+        .w-10 {
+            weight: 100px;
+        }
+        .h-12{
+            height:130px;
+        }
          
         
     </style>
@@ -58,7 +63,7 @@
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 brown-background">
         <div>
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-darkbrown" />
+                <x-application-logo class="w-10 h-12 fill-current text-darkbrown" />
             </a>
         </div>
 
