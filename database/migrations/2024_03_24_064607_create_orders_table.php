@@ -18,8 +18,6 @@ return new class extends Migration
             $table->bigInteger('id')->unsigned();
             $table->foreign('id')->constrained()->unique()->references('id')->on('users');
             $table->dateTime('datetime');
-
-
         });
     }
 

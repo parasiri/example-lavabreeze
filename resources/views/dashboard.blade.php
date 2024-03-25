@@ -5,15 +5,6 @@
         </h2>
     </x-slot>
 
-  <!--   <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-darkbrown dark:bg-darkbrown overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
-    </div> -->
     <div class="max-w-7xl mx-auto p-6 lg:p-8">
                 
                 <!-- โลโก้ -->
@@ -92,7 +83,7 @@
                             
 
                                 <div class="ml-4">
-                                <h2 class="text-xl font-semibold text-darkbrown dark:text-darkbrown">LATTE</h2>
+                                <h2 class="text-xl font-semibold text-darkbrown dark:text-darkbrown">EXPRESSO</h2>
                                 <p class="text-darkbrown dark:text-darkbrown text-ms leading-relaxed">DRIPPER </p>
                                 </div>
                                 <div class="ml-2"><p class="text-darkbrown dark:text-darkbrown text-xl leading-relaxed mt-10">90฿</p></div>
@@ -106,7 +97,7 @@
                                 <img src="mocha.jpg" alt="Americano picture" class="h-12 w-10 object-cover rounded-curved ">
 
                                 <div class="ml-4">
-                                <h2 class="text-xl font-semibold text-darkbrown dark:text-darkbrown">LATTE</h2>
+                                <h2 class="text-xl font-semibold text-darkbrown dark:text-darkbrown">MOCHA</h2>
                                 <p class="text-darkbrown dark:text-darkbrown text-ms leading-relaxed">DRIPPER </p>
                                 </div>
                                 <div class="ml-2"><p class="text-darkbrown dark:text-darkbrown text-xl leading-relaxed mt-10">90฿</p></div>

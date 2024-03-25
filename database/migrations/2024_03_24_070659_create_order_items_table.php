@@ -19,8 +19,12 @@ return new class extends Migration
             $table->double('discount');
             $table->foreign('order_id')->constrained()->unique()->references('order_id')->on('orders');
             $table->foreign('Menu_id')->constrained()->unique()->references('Menu_id')->on('menus');
-
         });
+
+        // Schema::table('order_items', function (Blueprint $table) {
+        //     $table->bigInteger('total')->after('quantity');
+            
+        // });
     }
 
     /**
