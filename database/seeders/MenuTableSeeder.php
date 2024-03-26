@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Menu;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class MenuTableSeeder extends Seeder
 {
@@ -13,84 +14,78 @@ class MenuTableSeeder extends Seeder
      */
     public function run(): void
     {
-        menus::create([
-            'Menu_id' => 1,
+        $menus = [
+            ['Menu_id' => 1,
             'Cat_id' => 1,
             'name' => 'americano',
-            'description' => 'dripper',
-            'price' => 90,
-        ]);
+            'discription' => 'dripper',
+            'price' => 90, 
+            ],
+            [
+                'Menu_id' => 2,
+                'Cat_id' => 2,
+                'name' => 'coldbrew',
+                'discription' => 'dripper',
+                'price' => 90,
+            ],
+            [
+                'Menu_id' => 3,
+                'Cat_id' => 3,
+                'name' => 'latte',
+                'discription' => 'dripper',
+                'price' => 90,
+            ],
+            [
+                'Menu_id' => 4,
+                'Cat_id' => 2,
+                'name' => 'expresso',
+                'discription' => 'dripper',
+                'price' => 90,
+            ],
+            [
+                'Menu_id' => 5,
+                'Cat_id' => 3,
+                'name' => 'mocha',
+                'discription' => 'dripper',
+                'price' => 90,
+            ],
+            [
+                'Menu_id' => 6,
+                'Cat_id' => 1,
+                'name' => 'cappuccino',
+                'discription' => 'dripper',
+                'price' => 90,
+            ],
+            [
+                'Menu_id' => 7,
+                'Cat_id' => 2,
+                'name' => 'macchiato',
+                'discription' => 'dripper',
+                'price' => 90,
+            ],
+            [
+                'Menu_id' => 8,
+                'Cat_id' => 1,
+                'name' => 'flatwhite',
+                'discription' => 'dripper',
+                'price' => 90,
+            ],
+            [
+                'Menu_id' => 9,
+                'Cat_id' => 3,
+                'name' => 'matchalatte',
+                'discription' => 'dripper',
+                'price' => 90,
+            ],
+            [
+                'Menu_id' => 10,
+                'Cat_id' => 2,
+                'name' => 'dripcoffee',
+                'discription' => 'dripper',
+                'price' => 90,
+            ]
+            ];
 
-        menus::create([
-            'Menu_id' => 2,
-            'Cat_id' => 2,
-            'name' => 'coldbrew',
-            'description' => 'dripper',
-            'price' => 90,
-        ]);
-
-        menus::create([
-            'Menu_id' => 3,
-            'Cat_id' => 3,
-            'name' => 'latte',
-            'description' => 'dripper',
-            'price' => 90,
-        ]);
-
-        menus::create([
-            'Menu_id' => 4,
-            'Cat_id' => 4,
-            'name' => 'expresso',
-            'description' => 'dripper',
-            'price' => 90,
-        ]);
-
-        menus::create([
-            'Menu_id' => 5,
-            'Cat_id' => 5,
-            'name' => 'mocha',
-            'description' => 'dripper',
-            'price' => 90,
-        ]);
-
-        menus::create([
-            'Menu_id' => 6,
-            'Cat_id' => 6,
-            'name' => 'cappuccino',
-            'description' => 'dripper',
-            'price' => 90,
-        ]);
-
-        menus::create([
-            'Menu_id' => 7,
-            'Cat_id' => 7,
-            'name' => 'macchiato',
-            'description' => 'dripper',
-            'price' => 90,
-        ]);
-
-        menus::create([
-            'Menu_id' => 8,
-            'Cat_id' => 8,
-            'name' => 'flatwhite',
-            'description' => 'dripper',
-            'price' => 90,
-        ]);
-
-        menus::create([
-            'Menu_id' => 9,
-            'Cat_id' => 9,
-            'name' => 'matchalatte',
-            'description' => 'dripper',
-            'price' => 90,
-        ]);
-
-        menus::create([
-            'Menu_id' => 10,
-            'Cat_id' => 10,
-            'name' => 'dripcoffee',
-            'description' => 'dripper',
-            'price' => 90,
-        ]);
+            DB::table('menus')->insert($menus);
     }
 }

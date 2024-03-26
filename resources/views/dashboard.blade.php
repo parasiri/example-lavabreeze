@@ -5,6 +5,15 @@
         </h2>
     </x-slot>
 
+  <!--   <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-darkbrown dark:bg-darkbrown overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    {{ __("You're logged in!") }}
+                </div>
+            </div>
+        </div>
+    </div> -->
     <div class="max-w-7xl mx-auto p-6 lg:p-8">
                 
                 <!-- โลโก้ -->
@@ -20,166 +29,50 @@
                 <div class="mt-16">
                     <!-- ตาราง -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                        
-                        <!-- กล่องแรกdoc -->
-                        <a href="http://localhost/cart" class="scale-100 p-6  bg-brown  via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
+                    @foreach($menus as $menu)
+                    <div  class="scale-100 p-6  bg-brown  via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
                             <div>
                                 
                                 <div class="flex justify-center items-center">
-                                    <img src="americano.jpg" alt="Americano picture" class="h-12 w-10 object-cover rounded-curved">
+                                    <!-- <img src="americano.jpg" alt="Americano picture" class="h-12 w-10 object-cover rounded-curved"> -->
                                     <div class="ml-4">
-                                        <h2 class="text-xl font-semibold text-darkbrown dark:text-darkbrown">AMERICANO</h2>
-                                        <p class="text-darkbrown dark:text-darkbrown text-sm leading-relaxed mt-1">DRIPPER</p>
+                                        <h2 class="text-xl font-semibold text-darkbrown dark:text-darkbrown">{{$menu->name}}</h2>
+                                        <p class="text-darkbrown dark:text-darkbrown text-sm leading-relaxed mt-1">{{$menu->discription}}</p>
                                         
                                     </div>
-                                    <div class="ml-2"><p class="text-darkbrown dark:text-darkbrown text-xl leading-relaxed mt-10">90฿</p></div>
+                                    <div class="ml-2"> <p class="text-darkbrown dark:text-darkbrown text-xl leading-relaxed mt-10">{{$menu->price}}THB</p></div>
+                                    
+
+                                    <div class="ms-4 mt-6 ml-2">
+                                        <div style="display: inline-block;">
+                                            <form action="{{url('add_cart',$menu->Menu_id)}}" method="Post">
+                                                @csrf
+                                                <input style="border-radius: 10px; padding: 8px;" type="number" name="quantity">
+                                                <input style="border: 1px solid #ccc; border-radius: 10px; padding: 8px; background-color: #f2f2f2; cursor: pointer;" class="btn btn-primary" type="submit" value="Add To Cart">
+                                            </form>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- <x-primary-button class="ms-4 mt-6 ml-2">
+                                        {{ __('ADDCART') }}
+                                    </x-primary-button>
+
+                                    
+
+                                    <div class="counter ml-2 mt-5">
+                                        <button id="minusBtn">-</button>
+                                        <input type="text" id="numberInput" value="0" readonly>
+                                        <button id="plusBtn">+</button>
+                                    </div> -->
                                 </div>
 
 
                             </div>
                            
-                        </a>
-
-                        <!-- กล่องสองdoc -->
-                        <a href="http://localhost/register" class="scale-100 p-6  bg-brown  via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                              
-                                <div class="flex justify-center items-center">
-                                <img src="coldbrew.jpg" alt="Cold Brew picture" class="h-12 w-10 object-cover rounded-curved">
-                               
-                               <div class="ml-4">
-                                <h2 class="text-xl font-semibold text-darkbrown dark:text-darkbrown">COLDBREW</h2>
-                                <p class="text-darkbrown dark:text-darkbrown text-ms leading-relaxed">DRIPPER </p>
-                                </div>
-                                <div class="ml-2"><p class="text-darkbrown dark:text-darkbrown text-xl leading-relaxed mt-10">90฿</p></div>
-                            
-                            </div>
-                            </div>
-
-                            
-                        </a>
-
-                        <!-- กล่องสามdoc -->
-                        <a href="http://localhost/register" class="scale-100 p-6  bg-brown  via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                            <div class="flex justify-center items-center">
-                                <img src="latte.jpg" alt="Americano picture" class="h-12 w-10 object-cover rounded-curved ">
-
-                                <div class="ml-4">
-                                <h2 class="text-xl font-semibold text-darkbrown dark:text-darkbrown">LATTE</h2>
-                                <p class="text-darkbrown dark:text-darkbrown text-ms leading-relaxed">DRIPPER </p>
-                                </div>
-                                <div class="ml-2"><p class="text-darkbrown dark:text-darkbrown text-xl leading-relaxed mt-10">90฿</p></div>
-                            </div>
-                            </div>
-
-                        </a>
-
-                        <!-- กล่องสี่doc -->
-                        <a href="http://localhost/register" class="scale-100 p-6  bg-brown  via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                            <div class="flex justify-center items-center">
-                                <img src="EXPRESSO.jpg" alt="Americano picture" class="h-12 w-10 object-cover rounded-curved ">
-                            
-
-                                <div class="ml-4">
-                                <h2 class="text-xl font-semibold text-darkbrown dark:text-darkbrown">EXPRESSO</h2>
-                                <p class="text-darkbrown dark:text-darkbrown text-ms leading-relaxed">DRIPPER </p>
-                                </div>
-                                <div class="ml-2"><p class="text-darkbrown dark:text-darkbrown text-xl leading-relaxed mt-10">90฿</p></div>
-                                </div>   
-                            </div>
-                        </a>
-
-                        <a href="http://localhost/register" class="scale-100 p-6  bg-brown  via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                            <div class="flex justify-center items-center">
-                                <img src="mocha.jpg" alt="Americano picture" class="h-12 w-10 object-cover rounded-curved ">
-
-                                <div class="ml-4">
-                                <h2 class="text-xl font-semibold text-darkbrown dark:text-darkbrown">MOCHA</h2>
-                                <p class="text-darkbrown dark:text-darkbrown text-ms leading-relaxed">DRIPPER </p>
-                                </div>
-                                <div class="ml-2"><p class="text-darkbrown dark:text-darkbrown text-xl leading-relaxed mt-10">90฿</p></div>
-                                </div>   
-                            </div>
-                        </a>
-
-                        <a href="http://localhost/register" class="scale-100 p-6  bg-brown  via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                              
-                            <div class="flex justify-center items-center">
-                                <img src="CAPPUCCINO.jpg" alt="Americano picture" class="h-12 w-10 object-cover rounded-curved ">
-
-                                <div class="ml-4">
-                                <h2 class="text-xl font-semibold text-darkbrown dark:text-darkbrown">CAPPUCCINO</h2>
-                                <p class="text-darkbrown dark:text-darkbrown text-ms leading-relaxed">DRIPPER </p>
-                                </div>
-                                <div class="ml-2"><p class="text-darkbrown dark:text-darkbrown text-xl leading-relaxed mt-10">90฿</p></div>
-                                </div>  
-                            </div>
-                        </a>
-
-                        <a href="http://localhost/register" class="scale-100 p-6  bg-brown  via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                            <div class="flex justify-center items-center">
-                                <img src="MACCHIATO.jpg" alt="Americano picture" class="h-12 w-10 object-cover rounded-curved ">
-
-                                <div class="ml-4">
-                                <h2 class="text-xl font-semibold text-darkbrown dark:text-darkbrown">MACCHIATO</h2>
-                                <p class="text-darkbrown dark:text-darkbrown text-ms leading-relaxed">DRIPPER </p>
-                                </div>
-                                <div class="ml-2"><p class="text-darkbrown dark:text-darkbrown text-xl leading-relaxed mt-10">90฿</p></div>
-                                </div>  
-                            </div>
-                        </a>
-
-                        <a href="http://localhost/register" class="scale-100 p-6  bg-brown  via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                            <div class="flex justify-center items-center">
-                                <img src="FLAT_WHITE.jpg" alt="Americano picture" class="h-12 w-10 object-cover rounded-curved ">
-
-                                <div class="ml-4">
-                                <h2 class="text-xl font-semibold text-darkbrown dark:text-darkbrown">FLAT WHITE</h2>
-                                <p class="text-darkbrown dark:text-darkbrown text-ms leading-relaxed">DRIPPER </p>
-                                </div>
-                                <div class="ml-2"><p class="text-darkbrown dark:text-darkbrown text-xl leading-relaxed mt-10">90฿</p></div>
-                                </div>  
-                            </div>
-                        </a>
-
-                        <a href="http://localhost/register" class="scale-100 p-6  bg-brown  via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                            <div class="flex justify-center items-center">
-                                <img src="MATCHA_LATTE.jpg" alt="Americano picture" class="h-12 w-10 object-cover rounded-curved ">
-
-                                <div class="ml-4">
-                                <h2 class="text-xl font-semibold text-darkbrown dark:text-darkbrown">MATCHA LATTE</h2>
-                                <p class="text-darkbrown dark:text-darkbrown text-ms leading-relaxed">DRIPPER </p>
-                                </div>
-                                <div class="ml-2"><p class="text-darkbrown dark:text-darkbrown text-xl leading-relaxed mt-10">90฿</p></div>
-                                </div>  
-                            </div>
-                        </a>
-
-                        <a href="http://localhost/register" class="scale-100 p-6  bg-brown  via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                        <div>
-                        <div class="flex justify-center items-center">
-                                <img src="DRIP_COFFEE.jpg" alt="Americano picture" class="h-12 w-10 object-cover rounded-curved ">
-
-                                <div class="ml-4">
-                                <h2 class="text-xl font-semibold text-darkbrown dark:text-darkbrown">DRIP COFFEE</h2>
-                                <p class="text-darkbrown dark:text-darkbrown text-ms leading-relaxed">DRIPPER </p>
-                                </div>
-                                <div class="ml-2"><p class="text-darkbrown dark:text-darkbrown text-xl leading-relaxed mt-10">90฿</p></div>
-                                </div>  
-                            </div>
-                        </a>
-
-
-                        
                     </div>
-                </div>
+                    @endforeach
+
+                    
 
                 <!-- แถบล่างสุดริมขวา -->
                 <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
@@ -193,6 +86,23 @@
                      </div>
 
                 </div>
+                <script>
+                    const numberInput = document.getElementById('numberInput');
+                    const minusBtn = document.getElementById('minusBtn');
+                    const plusBtn = document.getElementById('plusBtn');
+
+                    minusBtn.addEventListener('click', () => {
+                        let currentValue = parseInt(numberInput.value);
+                        if (currentValue > 0) {
+                            numberInput.value = currentValue - 1;
+                        }
+                    });
+
+                    plusBtn.addEventListener('click', () => {
+                        let currentValue = parseInt(numberInput.value);
+                        numberInput.value = currentValue + 1;
+                    });
+                </script>
 
             </div>
         </div>

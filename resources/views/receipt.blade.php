@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  />
     <title>Shopping Cart</title>
     <!-- Include any necessary stylesheets or scripts here -->
-</head>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt</title>
+    <style>
         /* Custom styles for the shopping cart */
         .relative {
             position: relative;
@@ -141,9 +143,47 @@
             position: absolute;
             top: 30px;
           }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            
+            max-width: 400px;
+            margin: 0 auto;
+            border: 2px solid #000;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .receipt-details {
+            margin-bottom: 20px;
+        }
+        .receipt-details p {
+            margin: 5px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .total {
+            text-align: right;
+        }
+    </style>
+</head>
 
-
-</style>
 <body>
 <header class="bg-brown dark:bg-brown shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
@@ -161,24 +201,47 @@
             </div>
         </div>
     </header>
-
-    <!-- Show Item in cart apge -->
-    @foreach($cartItems as $item)
-        <div class="product">
-            <div class="product-details">
-                <h3>{{ $item->menu_name }}</h3>
-                <p>{{ $item->price }}</p>
-                <p>Quantity: {{ $item->quantity }}</p>
-            </div>
-            <form action="{{ route('cart.delete', $item->id) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit">Remove</button>
-        </form>
+    <div class="container">
+        <h1>Receipt</h1>
+        <div class="receipt-details">
+            <p>Store: Dripper</p>
+            <p>Location: Engineering Building</p>
         </div>
-    @endforeach
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($cartItems as $item)
+                <tr>
+                    <td>{{ $item->menu_name }}</td>
+                    <td>{{ $item->quantity }}</td>
+                    <td>{{ $item->price }}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <div class="total">
+        @php
+            $totalPrice = $cartItems->sum(function($item) {
+                return $item->quantity * $item->price;});
+            $discount = $totalPrice > 1000 ? $totalPrice * 0.1 : 0;
+            $finalPrice = $totalPrice - $discount;
+        @endphp
+            <p>Total Before Discount: {{$totalPrice}} THB</p>
 
-
-    
+            <p>Discount 10% : {{ number_format($discount, 2) }} THB</p>
+            <p>Total After Discount: {{ number_format($finalPrice, 2) }} THB</p>
+            @if ($discount > 0)
+            
+        @endif
+        </div>
+        <p>**Discount When Buy More Than 1000 THB**</p>
+        <p>Thank you for shopping with us!</p>
+    </div>
 </body>
 </html>

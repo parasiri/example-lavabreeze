@@ -21,10 +21,9 @@ return new class extends Migration
             $table->foreign('Menu_id')->constrained()->unique()->references('Menu_id')->on('menus');
         });
 
-        // Schema::table('order_items', function (Blueprint $table) {
-        //     $table->bigInteger('total')->after('quantity');
-            
-        // });
+        Schema::table('order_items', function (Blueprint $table) {
+            $table->double('total')->after('discount');
+        });
     }
 
     /**

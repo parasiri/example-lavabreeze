@@ -12,10 +12,10 @@ class categories extends Model
 
     protected $table = "categories";
 
-    /* public function separate():BelongsToMany
+    public function separate():BelongsToMany
     {
         return $this->belongsToMany(menus::class, 'menu_id');
-    } */
+    }
 
-    public function 
+    // public function 
 }

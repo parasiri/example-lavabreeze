@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductPageController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ReceiptController;
+use App\Http\Controllers\MenuController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -21,9 +23,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// this is link to dashboard
+Route::get('/dashboard',[MenuController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -31,7 +32,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/product',[ProductPageController::class, 'index'])->name('product');
-Route::get('/cart',[CartController::class, 'cart'])->name('cart');
+Route::get('/receipt',[ReceiptController::class, 'receipt'])->name('receipt');
+
+Route::post('/add_cart/{id}',[CartController::class, 'add_cart']);
+
+Route::get('/cart',[CartController::class, 'show_cart'])->name('cart');
+
+Route::delete('/delete_cart/{id}', [CartController::class, 'delete_cart'])->name('cart.delete');
+
 
 require __DIR__.'/auth.php';

@@ -15,6 +15,7 @@
     <!-- Your other stylesheets and scripts go here -->
         <!-- Custom Styles -->
     <style>
+        
 
      .bg-brown {
       --tw-bg-opacity: 1;
@@ -81,7 +82,11 @@
         margin-left: auto;
         margin-right: auto;
         padding: 1.5rem; /* p-6 = 1.5rem */
+    
+        
     }
+
+    
 
     @media (min-width: 1024px) {
         .custom-container {

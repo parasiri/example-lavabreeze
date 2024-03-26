@@ -14,7 +14,7 @@ class orders extends Model
 
     protected $table = "orders";
     protected $primartKey = "order_id";
-/* 
+
     public function order():HasMany
     {
         return $this->hasMany(customers::class, 'order_id');
@@ -23,5 +23,5 @@ class orders extends Model
     public function match(): BelongsTo
     {
         return $this->belongsTo(order_item::class, 'order_item_id');
-    } */
+    } 
 }

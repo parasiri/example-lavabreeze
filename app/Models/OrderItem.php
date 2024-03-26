@@ -12,7 +12,7 @@ class order_item extends Model
     use HasFactory;
 
     protected $table = "order_items";
-/* 
+ 
     public function match():hasMany
     {
         return $this->hasMany(orders::class, 'order_id');
@@ -26,5 +26,5 @@ class order_item extends Model
     public function contain():BelongsToMany
     {
         return $this->belongsToMany(order_items::class, 'contains');
-    } */
+    } 
 }
